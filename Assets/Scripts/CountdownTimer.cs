@@ -5,7 +5,7 @@ using System.Collections;
 public class CountdownTimer : MonoBehaviour {
 
     public Text timerTxt;
-    float timer = 0, timelimit = 180;
+    float timelimit = 180;
 
 
 	// Use this for initialization
