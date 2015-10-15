@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
+using UnityStandardAssets.Utility;
 
 public class DoubleMovementSpeed : MonoBehaviour {
 
@@ -7,6 +9,7 @@ public class DoubleMovementSpeed : MonoBehaviour {
 	private float aniTimeElapsed;
 	private float aniTime = 0.5f;
 	private bool aniUp = true;
+	public static bool doubleSpeed = false;
 	// Use this for initialization
 	void Start () {
 		aniTimeElapsed = 0f;
@@ -36,7 +39,15 @@ public class DoubleMovementSpeed : MonoBehaviour {
 
 	}
 	void OnTriggerEnter(Collider player) {
-		//Debug.Log ("hello");
+
+		if (player.tag != "Player"){
+			return;
+		}
+		//player.GetComponent<FirstPersonController>().SetdoubleMovementSpeed();
+		//FirstPersonController.doubleSpeed = true;
+		//player.GetComponent<FirstPersonController>();
+		//player.GetComponent<FirstPersonController>().doubleSpeed = true;
+		UnityStandardAssets.Characters.FirstPerson.FirstPersonController.doubleSpeed = true;
 		Destroy (this.gameObject);
 	}
 }
