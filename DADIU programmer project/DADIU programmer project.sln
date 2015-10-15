@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{491238F7-33F3-E897-0179-0AB24E11134C}") = "DADIU programmer project", "Assembly-CSharp-firstpass.csproj", "{9845FECB-CCC6-29B9-A84B-50DDB38D9BDF}"
 EndProject
+Project("{491238F7-33F3-E897-0179-0AB24E11134C}") = "DADIU programmer project", "Assembly-CSharp.csproj", "{B3471987-B251-DCE0-CD03-74A4F21A4185}"
+EndProject
 Project("{491238F7-33F3-E897-0179-0AB24E11134C}") = "DADIU programmer project", "Assembly-CSharp-Editor.csproj", "{103F3BC9-6B5A-2060-8EDE-C7189CCA9DBA}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{9845FECB-CCC6-29B9-A84B-50DDB38D9BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9845FECB-CCC6-29B9-A84B-50DDB38D9BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9845FECB-CCC6-29B9-A84B-50DDB38D9BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3471987-B251-DCE0-CD03-74A4F21A4185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3471987-B251-DCE0-CD03-74A4F21A4185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3471987-B251-DCE0-CD03-74A4F21A4185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3471987-B251-DCE0-CD03-74A4F21A4185}.Release|Any CPU.Build.0 = Release|Any CPU
 		{103F3BC9-6B5A-2060-8EDE-C7189CCA9DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{103F3BC9-6B5A-2060-8EDE-C7189CCA9DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{103F3BC9-6B5A-2060-8EDE-C7189CCA9DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-			GlobalSection(MonoDevelopProperties) = preSolution
+							GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
