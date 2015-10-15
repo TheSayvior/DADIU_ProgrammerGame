@@ -8,15 +8,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 {
     public class FirstPersonController : MonoBehaviour
     {
-        [SerializeField] private bool m_IsWalking;
+        //[SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
-        [SerializeField] private float m_RunSpeed;
-        [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
-        [SerializeField] private float m_StickToGroundForce;
-        [SerializeField] private float m_GravityMultiplier;
+        //[SerializeField] private float m_RunSpeed;
+        //[SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
+        //[SerializeField] private float m_StickToGroundForce;
+        //[SerializeField] private float m_GravityMultiplier;
         [SerializeField] private MouseLook m_MouseLook;
-        [SerializeField] private bool m_UseFovKick;
-        [SerializeField] private FOVKick m_FovKick = new FOVKick();
+        //[SerializeField] private bool m_UseFovKick;
+        //[SerializeField] private FOVKick m_FovKick = new FOVKick();
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -37,7 +37,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
-            m_FovKick.Setup(m_Camera);
+            //m_FovKick.Setup(m_Camera);
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
 
@@ -90,7 +90,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
             float vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
-            bool waswalking = m_IsWalking;
+            //bool waswalking = m_IsWalking;
             // set the desired speed to be walking
 			speed = m_WalkSpeed;
             
@@ -109,11 +109,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             // handle speed change to give an fov kick
             // only if the player is going to a run, is running and the fovkick is to be used
-            if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0)
-            {
-                StopAllCoroutines();
-                StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
-            }
+            //if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0)
+            //{
+            //    StopAllCoroutines();
+            //    StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
+            //}
         }
 
 

@@ -15,7 +15,21 @@ public class AIMovement : MonoBehaviour {
 
     void Update()
     {
+        if (!Input.anyKey)
+        {
+            agent.Stop();
+            return;
+        }
+        else
+        {
+            agent.Resume();
+        }
         agent.SetDestination(player.transform.position);
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        Destroy(player);
     }
 }
 
