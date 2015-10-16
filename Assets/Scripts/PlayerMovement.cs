@@ -11,10 +11,10 @@ public class PlayerMovement : MonoBehaviour {
     private bool collided;
 
     //Needed for double speed powerup
-    public bool boolDoubleSpeed = false;
+    private bool boolDoubleSpeed = false;
     private float doubleSpeed;
-    float time = 5.0f;
-    float timeElapsed = 0;
+    private float time = 5.0f;
+    private float timeElapsed = 0;
 
     // Use this for initialization
     void Start () {
