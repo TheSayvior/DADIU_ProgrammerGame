@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-    public int damagePerShot = 20;
+    public int damagePerShot;
     Vector3 direction;
 
     // Use this for initialization
@@ -22,6 +22,11 @@ public class Bullet : MonoBehaviour {
     void setDirection(Vector3 dir)
     {
         direction = dir;
+    }
+    
+    void setDmg(int dmg)
+    {
+        damagePerShot = dmg;
     }
 
     void OnCollisionEnter(Collision col)
