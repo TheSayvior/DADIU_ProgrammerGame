@@ -14,9 +14,20 @@ public class DoubleMovementSpeed : MonoBehaviour {
 	void Start () {
 		aniTimeElapsed = 0f;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    void OnTriggerEnter(Collider player)
+    {
+        Debug.Log("freak");
+        if (player.tag != "Player")
+        {
+            return;
+        }
+        player.GetComponent<PlayerMovement>().boolDoubleSpeed = true;
+        Destroy(this.gameObject);
+    }
+
+    // Update is called once per frame
+    void Update () {
 		//Animation of powerUp
 		if ((aniTimeElapsed > aniTime)) {
 			aniUp = false;
@@ -37,17 +48,5 @@ public class DoubleMovementSpeed : MonoBehaviour {
 		// End of PowerUp animation
 
 
-	}
-	void OnTriggerEnter(Collider player) {
-
-		if (player.tag != "Player"){
-			return;
-		}
-		//player.GetComponent<FirstPersonController>().SetdoubleMovementSpeed();
-		//FirstPersonController.doubleSpeed = true;
-		//player.GetComponent<FirstPersonController>();
-		//player.GetComponent<FirstPersonController>().doubleSpeed = true;
-		UnityStandardAssets.Characters.FirstPerson.FirstPersonController.doubleSpeed = true;
-		Destroy (this.gameObject);
 	}
 }
