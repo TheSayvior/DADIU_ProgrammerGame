@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour {
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damagePerShot, Vector3.zero);
-                //Destroy(gameObject);
+                Destroy(gameObject);
             }
         }
         else if (col.gameObject.tag =="Wall")

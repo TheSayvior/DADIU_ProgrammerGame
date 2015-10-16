@@ -5,6 +5,7 @@ public class PlayerShooting : MonoBehaviour
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
+    public float speed = 2f;
     public GameObject bullet,shootingLine;
 
 
@@ -81,7 +82,7 @@ public class PlayerShooting : MonoBehaviour
         //else
         //{
         GameObject bul = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
-        bul.SendMessage("setDirection",transform.position-shootingLine.transform.position);
+        bul.SendMessage("setDirection",(transform.position-shootingLine.transform.position) * speed);
         //bul.transform.parent = gameObject.transform;
             gunLine.SetPosition(1, bul.transform.position);
         //}
