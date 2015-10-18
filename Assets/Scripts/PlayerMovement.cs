@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool collided;
 
     //Needed for double speed powerup
-    private bool boolDoubleSpeed = false;
+    public bool boolDoubleSpeed = false;
     private float doubleSpeed;
     private float time = 5.0f;
     private float timeElapsed = 0;
