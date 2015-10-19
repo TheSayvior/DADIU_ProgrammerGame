@@ -4,7 +4,6 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
     public float speed = 2.0f;
-    public Vector3 speed2;
 
     private Vector3 Pos;
 
@@ -68,19 +67,18 @@ public class PlayerMovement : MonoBehaviour {
         {
             resetRB();
         }
-        // Restricting movement velocity.
-        Vector3 clampedVelocity = RB.velocity;
-
-         clampedVelocity.x = Mathf.Clamp(clampedVelocity.x, -5.0f, 5.0f);
-         clampedVelocity.z = Mathf.Clamp(clampedVelocity.z, -5.0f, 5.0f);
-         clampedVelocity.y = 0;
-         RB.velocity = clampedVelocity;
-
-         speed2 = RB.velocity;
 
         //Move the player according to the appropriate force
         moveDir.y = 2;
-        RB.AddForce(moveDir * speed);
+        RB.AddForce(moveDir * speed * Time.deltaTime);
+
+        // Restricting movement velocity.
+        Vector3 clampedVelocity = RB.velocity;
+
+        clampedVelocity.x = Mathf.Clamp(clampedVelocity.x, -5.0f, 5.0f);
+        clampedVelocity.z = Mathf.Clamp(clampedVelocity.z, -5.0f, 5.0f);
+        clampedVelocity.y = 0;
+        RB.velocity = clampedVelocity;
 
         //make sure the player dosent start flying because of physics
         Pos = transform.localPosition;
