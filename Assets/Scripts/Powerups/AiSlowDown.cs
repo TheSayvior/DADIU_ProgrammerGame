@@ -3,7 +3,7 @@ using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 
-public class DoubleMovementSpeed : MonoBehaviour {
+public class AiSlowDown : MonoBehaviour {
 
 	// Animations
 	private float aniTimeElapsed;
@@ -13,7 +13,7 @@ public class DoubleMovementSpeed : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		aniTimeElapsed = 0f;
-	}
+    }
 
     void OnTriggerEnter(Collider player)
     {
@@ -22,7 +22,8 @@ public class DoubleMovementSpeed : MonoBehaviour {
         {
             return;
         }
-        player.GetComponent<PlayerMovement>().boolDoubleSpeed = true;
+        GameMasterPublicVariables.EnemyHalfSpeed = true;
+
         Destroy(this.gameObject);
     }
 
