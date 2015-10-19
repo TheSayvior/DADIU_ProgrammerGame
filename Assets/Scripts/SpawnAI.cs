@@ -25,7 +25,7 @@ public class SpawnAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        var playerPos = player.transform.position;
+        playerPos = player.transform.position;
 
         int numberOfAis = GameMasterPublicVariables.spawnedAI - GameMasterPublicVariables.killedAI;
 
@@ -38,7 +38,7 @@ public class SpawnAI : MonoBehaviour {
 
         if (numberOfAis < desiredNumberOfAIs)
         {
-            SpawnOneAI();
+            StartCoroutine("SpawnOneAICou");
         }
 	}
 
