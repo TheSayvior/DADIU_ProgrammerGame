@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     public bool isShotgun=false;
     RaycastHit hitInfo;
     Vector3 flyToPos;
-
+    //public GameObject AudioM;
     float timer;
 
     void Update()
@@ -18,6 +18,7 @@ public class Shooting : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && timer >= timeBetweenBullets)
         {
+            //AudioM.GetComponent<AudioController>().
             Shoot();
         }
 
