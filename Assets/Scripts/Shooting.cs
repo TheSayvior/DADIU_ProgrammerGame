@@ -5,7 +5,7 @@ public class Shooting : MonoBehaviour
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.2f;
     public float BulletSpeed = 2f;
-    public GameObject bullet;
+    public GameObject bullet,bulletCollider;
     public bool isShotgun=false;
     RaycastHit hitInfo;
     Vector3 flyToPos;
@@ -36,16 +36,19 @@ public class Shooting : MonoBehaviour
         }
         timer = 0f;
         GameObject bul = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
-        Debug.Log(bul.transform.position);
+        GameObject bulCol = Instantiate(bulletCollider, Camera.main.transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
         bul.SendMessage("setPosition", transform.position);
         if (isShotgun)
         {
             bul.SendMessage("setDirection", (flyToPos - transform.position).normalized + new Vector3(Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f) * BulletSpeed);
+            bulCol.SendMessage("setDirection", (flyToPos - Camera.main.transform.position).normalized + new Vector3(Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f) * BulletSpeed);
         }
         else
         {
             bul.SendMessage("setDirection", (flyToPos - transform.position).normalized * BulletSpeed);
+            bulCol.SendMessage("setDirection", (flyToPos - Camera.main.transform.position).normalized * BulletSpeed);
         }
-        bul.SendMessage("setDmg", damagePerShot);
+        bulCol.SendMessage("setDmg", damagePerShot);
+        bulCol.SendMessage("setBullet", bul);
     }
 }
