@@ -3,8 +3,10 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float speed = 0.1f;
- 
+    public float speed = 2.0f;
+    public Vector3 speed2;
+
+    private Vector3 Pos;
 
     private Rigidbody RB;
 
@@ -27,9 +29,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update () {
 
-        RB.velocity = Vector3.zero;
+        //RB.velocity = Vector3.zero;
 
-        if(boolDoubleSpeed)
+        Vector3 moveDir = Vector3.zero;
+
+        if (boolDoubleSpeed)
         {
             speed = doubleMovementSpeed(speed);
         }
@@ -38,28 +42,50 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetKey("w"))
         {
-            var move = transform.forward;
-            move.y = 0;
-            transform.localPosition = transform.localPosition + move * speed;
+            //resetRB();
+            moveDir = moveDir + transform.forward;
         }
+
         if (Input.GetKey("s"))
         {
-            var move = transform.forward;
-            move.y = 0;
-            transform.localPosition = transform.localPosition - move * speed;
+            //resetRB();
+            moveDir = moveDir - transform.forward;
         }
+
         if (Input.GetKey("d"))
         {
-            var move = transform.right;
-            move.y = 0;
-            transform.localPosition = transform.localPosition + move * speed;
+            //resetRB();
+            moveDir = moveDir + transform.right;
         }
+
         if (Input.GetKey("a"))
         {
-            var move = transform.right;
-            move.y = 0;
-            transform.localPosition = transform.localPosition - move * speed;
+            //resetRB();
+            moveDir = moveDir - transform.right;
         }
+
+        if (Input.anyKey == false)
+        {
+            resetRB();
+        }
+        // Restricting movement velocity.
+        Vector3 clampedVelocity = RB.velocity;
+
+         clampedVelocity.x = Mathf.Clamp(clampedVelocity.x, -5.0f, 5.0f);
+         clampedVelocity.z = Mathf.Clamp(clampedVelocity.z, -5.0f, 5.0f);
+         clampedVelocity.y = 0;
+         RB.velocity = clampedVelocity;
+
+         speed2 = RB.velocity;
+
+        //Move the player according to the appropriate force
+        moveDir.y = 2;
+        RB.AddForce(moveDir * speed);
+
+        //make sure the player dosent start flying because of physics
+        Pos = transform.localPosition;
+        Pos.y = 2;
+        transform.localPosition = Pos;
     }
 
     private float doubleMovementSpeed(float speed)
@@ -76,5 +102,11 @@ public class PlayerMovement : MonoBehaviour {
             timeElapsed = 0;
         }
         return speed;
+    }
+
+    private void resetRB()
+    {
+        RB.velocity = Vector3.zero;
+        RB.angularVelocity = Vector3.zero;
     }
 }

@@ -19,6 +19,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         //[SerializeField] private FOVKick m_FovKick = new FOVKick();
 
         private Camera m_Camera;
+        private Transform m_transform;
         private bool m_Jump;
         private float m_YRotation;
         private Vector2 m_Input;
@@ -37,8 +38,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             //m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
+            m_transform = GetComponent<Transform>();
             //m_FovKick.Setup(m_Camera);
-			m_MouseLook.Init(transform , m_Camera.transform);
+            m_MouseLook.Init(transform , m_Camera.transform);
         }
 
 
@@ -46,6 +48,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
             RotateView();
+
+            //m_transform.localRotation = Quaternion.Euler(0f, 1.0f, 0f);
+            //localRotation.eulerAngles = new Vector3(0, 0, 0);
         }
 
         /*private void FixedUpdate()
@@ -90,8 +95,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
             float vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
-            //bool waswalking = m_IsWalking;
-            // set the desired speed to be walking
 			speed = m_WalkSpeed;
             
 			//Apply double movement speedbuff
@@ -106,14 +109,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Input.Normalize();
             }
-
-            // handle speed change to give an fov kick
-            // only if the player is going to a run, is running and the fovkick is to be used
-            //if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0)
-            //{
-            //    StopAllCoroutines();
-            //    StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
-            //}
         }
 
 
