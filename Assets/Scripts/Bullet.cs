@@ -4,8 +4,8 @@ using System.Collections;
 public class Bullet : MonoBehaviour
 {
 
-    public int damagePerShot;
-    Vector3 direction;
+    public int damagePerShot,bulletDistance;
+    Vector3 direction,startingPos;
 
     // Use this for initialization
     void Start()
@@ -20,6 +20,16 @@ public class Bullet : MonoBehaviour
         {
             transform.position = transform.position + direction;
         }
+        if( bulletDistance<Vector3.Distance(startingPos, transform.position))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void setPosition(Vector3 pos)
+    {
+        startingPos = pos;
+        transform.position = pos;
     }
 
     void setDirection(Vector3 dir)
@@ -39,7 +49,7 @@ public class Bullet : MonoBehaviour
             EnemyHealth enemyHealth = col.gameObject.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(damagePerShot, Vector3.zero);
+                enemyHealth.TakeDamage(damagePerShot);
                 Destroy(gameObject);
             }
         }
