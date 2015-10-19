@@ -5,9 +5,10 @@ public class Shooting : MonoBehaviour
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.2f;
     public float BulletSpeed = 2f;
-    public GameObject bullet, shootingLine;
+    public GameObject bullet;
     public bool isShotgun=false;
-
+    RaycastHit hitInfo;
+    Vector3 flyToPos;
 
     float timer;
 
@@ -25,16 +26,25 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        timer = 0f;
-        GameObject bul = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
-        bul.SendMessage("setPosition",transform.position);
-        if (isShotgun)
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100))
         {
-            bul.SendMessage("setDirection", (transform.position - shootingLine.transform.position).normalized+new Vector3(Random.Range(0f,1f)/10f, Random.Range(0f, 1f)/10f, Random.Range(0f, 1f)/10f) * BulletSpeed);
+            flyToPos = hitInfo.point;
         }
         else
         {
-            bul.SendMessage("setDirection", (transform.position - shootingLine.transform.position).normalized * BulletSpeed);
+            flyToPos = Camera.main.transform.position + Camera.main.transform.forward * 10;
+        }
+        timer = 0f;
+        GameObject bul = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+        Debug.Log(bul.transform.position);
+        bul.SendMessage("setPosition", transform.position);
+        if (isShotgun)
+        {
+            bul.SendMessage("setDirection", (flyToPos - transform.position).normalized + new Vector3(Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f) * BulletSpeed);
+        }
+        else
+        {
+            bul.SendMessage("setDirection", (flyToPos - transform.position).normalized * BulletSpeed);
         }
         bul.SendMessage("setDmg", damagePerShot);
     }
