@@ -23,7 +23,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jump;
         private float m_YRotation;
         private Vector2 m_Input;
-        private Vector3 m_MoveDir = Vector3.zero;
+        //private Vector3 m_MoveDir = Vector3.zero;
         //private CharacterController m_CharacterController;
         private CollisionFlags m_CollisionFlags;
 
