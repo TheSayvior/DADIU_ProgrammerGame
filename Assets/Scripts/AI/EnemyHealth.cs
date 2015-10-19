@@ -29,6 +29,7 @@ public class EnemyHealth : MonoBehaviour
     void Death()
     {
         isDead = true;
+        GameMasterPublicVariables.killedAI++;
         Destroy(gameObject);
     }
 }
