@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         //Move the player according to the appropriate force
-        moveDir.y = 2;
+        //moveDir.y = 2;
         RB.AddForce(moveDir * speed * Time.deltaTime);
 
         // Restricting movement velocity.
@@ -82,9 +82,9 @@ public class PlayerMovement : MonoBehaviour {
         RB.velocity = clampedVelocity;
 
         //make sure the player dosent start flying because of physics
-        Pos = transform.localPosition;
-        Pos.y = 2;
-        transform.localPosition = Pos;
+        //Pos = transform.localPosition;
+        //Pos.y = 2;
+        //transform.localPosition = Pos;
     }
 
     void OnCollisionEnter(Collision col)

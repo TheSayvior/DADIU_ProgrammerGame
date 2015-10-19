@@ -32,7 +32,8 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        Vector3 camPos = Camera.main.transform.position - new Vector3(0, 0.6f, 0);
+        Vector3 camPos = Camera.main.transform.position + new Vector3(0, -0.6f, 0.6f);
+        Debug.Log(camPos);
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100))
         {
             flyToPos = hitInfo.point;
@@ -47,13 +48,14 @@ public class Shooting : MonoBehaviour
         bul.SendMessage("setPosition", transform.position);
         if (isShotgun)
         {
-            bul.SendMessage("setDirection", (flyToPos - transform.position).normalized + new Vector3(Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f) * BulletSpeed);
-            bulCol.SendMessage("setDirection", (flyToPos - camPos).normalized + new Vector3(Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f) * BulletSpeed);
+            Vector3 ran = new Vector3(Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f);
+            bul.SendMessage("setDirection", (flyToPos - transform.position).normalized + ran  * BulletSpeed);
+            bulCol.SendMessage("setDirection", (flyToPos- camPos ).normalized+ ran * BulletSpeed);
         }
         else
         {
             bul.SendMessage("setDirection", (flyToPos - transform.position).normalized * BulletSpeed);
-            bulCol.SendMessage("setDirection", (flyToPos - camPos).normalized * BulletSpeed);
+            bulCol.SendMessage("setDirection", (flyToPos- camPos).normalized * BulletSpeed);
         }
         bulCol.SendMessage("setDmg", damagePerShot);
         bulCol.SendMessage("setBullet", bul);
