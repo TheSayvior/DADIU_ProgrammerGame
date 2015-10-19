@@ -11,9 +11,16 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool collided;
 
+    //Needed for double speed powerup
+    public bool boolDoubleSpeed = false;
+    private float doubleSpeed;
+    private float time = 5.0f;
+    private float timeElapsed = 0;
+
     // Use this for initialization
     void Start () {
         RB = GetComponent<Rigidbody>();
+        doubleSpeed = speed * 2;
     }
 	
 	// Update is called once per frame
@@ -24,6 +31,11 @@ public class PlayerMovement : MonoBehaviour {
         //RB.velocity = Vector3.zero;
 
         Vector3 moveDir = Vector3.zero;
+
+        if (boolDoubleSpeed)
+        {
+            speed = doubleMovementSpeed(speed);
+        }
 
         transform.rotation = Camera.main.transform.rotation;
 
@@ -58,7 +70,7 @@ public class PlayerMovement : MonoBehaviour {
 
         //Move the player according to the appropriate force
         moveDir.y = 2;
-        RB.AddForce(moveDir * speed/* * Time.deltaTime */);
+        RB.AddForce(moveDir * speed * Time.deltaTime);
 
         // Restricting movement velocity.
         Vector3 clampedVelocity = RB.velocity;
@@ -72,6 +84,22 @@ public class PlayerMovement : MonoBehaviour {
         Pos = transform.localPosition;
         Pos.y = 2;
         transform.localPosition = Pos;
+    }
+
+    private float doubleMovementSpeed(float speed)
+    {
+        if (timeElapsed < time)
+        {
+            speed = doubleSpeed;
+            timeElapsed += Time.deltaTime;
+        }
+        else
+        {
+            speed = speed / 2;
+            boolDoubleSpeed = false;
+            timeElapsed = 0;
+        }
+        return speed;
     }
 
     private void resetRB()
