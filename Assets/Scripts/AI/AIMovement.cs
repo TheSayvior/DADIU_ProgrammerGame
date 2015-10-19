@@ -29,7 +29,9 @@ public class AIMovement : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        Destroy(player);
+        if (col.gameObject.tag == "Player") {
+            Destroy(player);
+        }
     }
 }
 

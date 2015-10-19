@@ -4,12 +4,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;
-    //public float sinkSpeed = 2.5f;
-    public int scoreValue = 10;
-
-    CapsuleCollider capsuleCollider;
+    //public int scoreValue = 10;
     bool isDead;
-    //bool isSinking;
 
 
     void Awake()
@@ -17,11 +13,12 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = startingHealth;
     }
 
-    public void TakeDamage(int amount, Vector3 hitPoint)
+    public void TakeDamage(int amount)
     {
         if (isDead)
             return;
         currentHealth -= amount;
+        Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             Death();
@@ -32,7 +29,6 @@ public class EnemyHealth : MonoBehaviour
     void Death()
     {
         isDead = true;
-        capsuleCollider.isTrigger = true;
         Destroy(gameObject);
     }
 }

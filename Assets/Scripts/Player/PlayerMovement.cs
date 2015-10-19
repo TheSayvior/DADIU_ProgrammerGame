@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
     public float speed = 2.0f;
+    public GameObject ak, shutgun, pistol;
 
     private Vector3 Pos;
 
@@ -84,6 +85,30 @@ public class PlayerMovement : MonoBehaviour {
         Pos = transform.localPosition;
         Pos.y = 2;
         transform.localPosition = Pos;
+    }
+
+    void ChangeWeapon(string weapon)
+    {
+        switch (weapon)
+        {
+            case ("Ak47"):
+                ak.SetActive(true);
+                shutgun.SetActive(false);
+                pistol.SetActive(false);
+                break;
+            case ("Shutgun"):
+                ak.SetActive(false);
+                shutgun.SetActive(true);
+                pistol.SetActive(false);
+                break;
+            case ("Pistol"):
+                ak.SetActive(false);
+                shutgun.SetActive(false);
+                pistol.SetActive(true);
+                break;
+            default:
+                break;
+        }
     }
 
     private float doubleMovementSpeed(float speed)
