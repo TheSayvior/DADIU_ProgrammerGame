@@ -93,8 +93,8 @@ public class PlayerMovement : MonoBehaviour {
         {
 
             resBut.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
+            //Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.Confined;
         }
     }
 

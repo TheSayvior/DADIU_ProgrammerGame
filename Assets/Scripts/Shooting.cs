@@ -12,6 +12,11 @@ public class Shooting : MonoBehaviour
     //public GameObject AudioM;
     float timer;
 
+    void Start()
+    {
+
+    }
+
     void Update()
     {
         timer += Time.deltaTime;
@@ -27,6 +32,7 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
+        Vector3 camPos = Camera.main.transform.position - new Vector3(0, 0.6f, 0);
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100))
         {
             flyToPos = hitInfo.point;
@@ -37,17 +43,17 @@ public class Shooting : MonoBehaviour
         }
         timer = 0f;
         GameObject bul = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
-        GameObject bulCol = Instantiate(bulletCollider, Camera.main.transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+        GameObject bulCol = Instantiate(bulletCollider, camPos, Quaternion.Euler(0, 0, 0)) as GameObject;
         bul.SendMessage("setPosition", transform.position);
         if (isShotgun)
         {
             bul.SendMessage("setDirection", (flyToPos - transform.position).normalized + new Vector3(Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f) * BulletSpeed);
-            bulCol.SendMessage("setDirection", (flyToPos - Camera.main.transform.position).normalized + new Vector3(Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f) * BulletSpeed);
+            bulCol.SendMessage("setDirection", (flyToPos - camPos).normalized + new Vector3(Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f, Random.Range(0f, 1f) / 10f) * BulletSpeed);
         }
         else
         {
             bul.SendMessage("setDirection", (flyToPos - transform.position).normalized * BulletSpeed);
-            bulCol.SendMessage("setDirection", (flyToPos - Camera.main.transform.position).normalized * BulletSpeed);
+            bulCol.SendMessage("setDirection", (flyToPos - camPos).normalized * BulletSpeed);
         }
         bulCol.SendMessage("setDmg", damagePerShot);
         bulCol.SendMessage("setBullet", bul);
