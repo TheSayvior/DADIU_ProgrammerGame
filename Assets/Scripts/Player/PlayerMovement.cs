@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
     public float speed = 2.0f;
-    public GameObject ak, shutgun, pistol;
+    public GameObject ak, shutgun, pistol, resBut;
 
     private Vector3 Pos;
 
@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool collided;
 
     //Needed for double speed powerup
-    public bool boolDoubleSpeed = false;
+    bool boolDoubleSpeed = false;
     private float doubleSpeed;
     private float time = 5.0f;
     private float timeElapsed = 0;
@@ -85,6 +85,17 @@ public class PlayerMovement : MonoBehaviour {
         Pos = transform.localPosition;
         Pos.y = 2;
         transform.localPosition = Pos;
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "AI")
+        {
+
+            resBut.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 
     void ChangeWeapon(string weapon)

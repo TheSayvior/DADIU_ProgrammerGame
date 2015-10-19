@@ -18,4 +18,9 @@ public class GameMasterPublicVariables : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void restartLevel()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
 }

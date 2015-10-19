@@ -42,13 +42,6 @@ public class AIMovement : MonoBehaviour {
         agent.SetDestination(player.transform.position);
     }
 
-    void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.tag == "Player") {
-            Destroy(player);
-        }
-    }
-
     private float halfMovementSpeed(float speed)
     {
         if (timeElapsed < time)
