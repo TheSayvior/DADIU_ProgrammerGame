@@ -2,13 +2,13 @@
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int startingHealth = 100;
+    public int startingHealth = 1;
     public int currentHealth;
     //public int scoreValue = 10;
     bool isDead;
+    //public AudioController audioM;
 
-
-    void Awake()
+    void Start()
     {
         currentHealth = startingHealth;
     }

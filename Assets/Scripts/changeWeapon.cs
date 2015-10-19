@@ -8,6 +8,7 @@ public class changeWeapon : MonoBehaviour
     private float aniTimeElapsed;
     private float aniTime = 0.5f;
     private bool aniUp = true;
+    public GameObject AudioM;
     // Use this for initialization
     void Start()
     {
@@ -45,6 +46,7 @@ public class changeWeapon : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            AudioM.GetComponent<AudioController>().startNyt();
             col.gameObject.SendMessage("ChangeWeapon",weapon);
             Destroy(gameObject);
         }
