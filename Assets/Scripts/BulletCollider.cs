@@ -6,12 +6,18 @@ public class BulletCollider : MonoBehaviour {
     public int damagePerShot, bulletDistance;
     GameObject bullet;
     Vector3 direction, startingPos;
+    Rigidbody RB;
+
+    void Start()
+    {
+        RB = gameObject.GetComponent<Rigidbody>();
+    }
 
     void Update()
     {
         if (Input.anyKey)
         {
-            transform.position = transform.position + direction;
+            RB.velocity = direction;
         }
         if (bulletDistance < Vector3.Distance(startingPos, transform.position))
         {
@@ -45,6 +51,7 @@ public class BulletCollider : MonoBehaviour {
     {
         if (col.gameObject.tag == "AI")
         {
+            Debug.Log("AI DOWN");
             EnemyHealth enemyHealth = col.gameObject.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
