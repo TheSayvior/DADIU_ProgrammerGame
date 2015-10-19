@@ -8,8 +8,13 @@ public class SpawnAI : MonoBehaviour {
 
     int x, z, numberOfAIsStart = 0, desiredNumberOfAIs = 0;
     private float timeElapsed = 0;
+    private GameObject player;
+    private Vector3 playerPos;
 	// Use this for initialization
 	void Start () {
+
+        player = GameObject.FindGameObjectWithTag("Player");
+
         desiredNumberOfAIs = startEnemies;
 
         while (numberOfAIsStart != desiredNumberOfAIs)
@@ -20,6 +25,8 @@ public class SpawnAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        var playerPos = player.transform.position;
+
         int numberOfAis = GameMasterPublicVariables.spawnedAI - GameMasterPublicVariables.killedAI;
 
         timeElapsed += Time.deltaTime;
@@ -39,7 +46,7 @@ public class SpawnAI : MonoBehaviour {
     {
         x = Random.Range(-45, 45);
         z = Random.Range(25, -65);
-        if (x > 15 || x < -15 && z > 15 || z < -15)
+        if (x > playerPos.x + 15 || x < playerPos.x - 15 && z > playerPos.z + 15 || z < playerPos.z - 15)
         {
             AI.transform.position = new Vector3(x, 1, z);
             Instantiate(AI);
