@@ -54,6 +54,7 @@ public class ZeldaRefAnimateFigure : MonoBehaviour {
         if ((transform.position.z < originalZPos - 0.5))
         {
             GameMasterPublicVariables.zeldaOver = true;
+            GameMasterPublicVariables.startZelda = false;
             Destroy(this.gameObject);
         }
     }

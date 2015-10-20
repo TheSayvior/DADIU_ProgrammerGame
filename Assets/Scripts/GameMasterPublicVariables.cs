@@ -9,7 +9,7 @@ public class GameMasterPublicVariables : MonoBehaviour {
     public static int killedAI, spawnedAI = 0;
     public static float enemyIncreaseTimer = 10, AISpeed;
     public int AIplus, forEveryKill;
-    int count = 0;
+    //int count = 0;
 	// Use this for initialization
 	void Start () {
         killedAI = 0;
@@ -32,6 +32,7 @@ public class GameMasterPublicVariables : MonoBehaviour {
 
     public void restartLevel()
     {
+        Time.timeScale = 1;
         Application.LoadLevel(Application.loadedLevel);
     }
 }

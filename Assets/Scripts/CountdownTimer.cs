@@ -6,9 +6,9 @@ public class CountdownTimer : MonoBehaviour {
 
     public Text timerTxt;
     float timer, timeBonus, timeLeft, time;
-    public float timeForKill, startTime, shotgunSpawnTime, akSpawnTime;
-    public GameObject shotgun, ak;
-    public static bool shotgunPick = false, akPick = false;
+    public float timeForKill, startTime, shotgunSpawnKills, akSpawnKills;
+    public GameObject zeldaDoor, ak;
+    //public static bool shotgunPick = false, akPick = false;
 
 	// Use this for initialization
 	void Start () {
@@ -18,21 +18,22 @@ public class CountdownTimer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        TimerCountdown();
-		time += Time.deltaTime;
+        if (GameMasterPublicVariables.startZelda == false)
+        {
+            TimerCountdown();
+        }
 		if (ak == null) {
 			return;
 		}
-        if (shotgun == null)
+        if (zeldaDoor == null)
         {
             return;
         }
-		if (time > shotgunSpawnTime) {
-			shotgun.SetActive (true);
+		if (GameMasterPublicVariables.killedAI >= shotgunSpawnKills) {
+			zeldaDoor.SetActive (true);
 		}
-		if (time > akSpawnTime) {
+		if (GameMasterPublicVariables.killedAI >= akSpawnKills) {
 			ak.SetActive (true);
-            shotgunPick = true;
 		}
 	}
 
