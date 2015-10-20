@@ -8,6 +8,8 @@ public class CountdownTimer : MonoBehaviour {
     float timer, timeBonus, timeLeft, time;
     public float timeForKill, startTime, shotgunSpawnTime, akSpawnTime;
     public GameObject shotgun, ak;
+    public static bool shotgunPick = false, akPick = false;
+
 	// Use this for initialization
 	void Start () {
         timer = startTime;
@@ -18,14 +20,19 @@ public class CountdownTimer : MonoBehaviour {
 	void Update () {
         TimerCountdown();
 		time += Time.deltaTime;
-		if (ak == null || shotgun == null) {
+		if (ak == null) {
 			return;
 		}
+        if (shotgun == null)
+        {
+            return;
+        }
 		if (time > shotgunSpawnTime) {
 			shotgun.SetActive (true);
 		}
 		if (time > akSpawnTime) {
 			ak.SetActive (true);
+            shotgunPick = true;
 		}
 	}
 

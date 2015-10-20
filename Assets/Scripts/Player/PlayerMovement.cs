@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float speed = 2.0f;
+    public float speed = 7000f;
     public GameObject ak, shutgun, pistol, resBut;
 
     private Vector3 Pos;

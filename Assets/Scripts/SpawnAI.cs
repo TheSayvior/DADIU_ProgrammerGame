@@ -4,7 +4,6 @@ using System.Collections;
 public class SpawnAI : MonoBehaviour {
     public GameObject AI;
     public int startEnemies = 10;
-    public float enemyIncreaseTimer = 10.0f;
 
     int x, z, numberOfAIsStart = 0, desiredNumberOfAIs = 0;
     private float timeElapsed = 0;
@@ -31,7 +30,7 @@ public class SpawnAI : MonoBehaviour {
 
         timeElapsed += Time.deltaTime;
 
-        if (timeElapsed > enemyIncreaseTimer) {
+        if (timeElapsed > GameMasterPublicVariables.enemyIncreaseTimer) {
             desiredNumberOfAIs += 1;
             timeElapsed = 0;
         }
