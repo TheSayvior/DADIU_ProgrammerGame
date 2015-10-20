@@ -5,7 +5,7 @@ using System.Collections;
 public class CountdownTimer : MonoBehaviour {
 
     public Text timerTxt, findDoor;
-    float timer, timeBonus, time;
+    float timer, timeBonus, time, count = 0;
     public static float timeLeft;
     public float timeForKill, startTime, shotgunSpawnKills, akSpawnKills;
     public GameObject zeldaDoor, ak, AudioM;
@@ -30,13 +30,15 @@ public class CountdownTimer : MonoBehaviour {
         {
             return;
         }
-		if (GameMasterPublicVariables.killedAI >= shotgunSpawnKills) {
+		if (GameMasterPublicVariables.killedAI >= shotgunSpawnKills && count == 0) {
 			zeldaDoor.SetActive (true);
-            AudioM.GetComponent<AudioController>().cain2.Play();
-            StartCoroutine(doorText()); 
+            AudioM.GetComponent<AudioController>().cain1.Play();
+            StartCoroutine(doorText());
+            count = 1;
 		}
-		if (GameMasterPublicVariables.killedAI >= akSpawnKills) {
+		if (GameMasterPublicVariables.killedAI >= akSpawnKills && count == 1) {
 			ak.SetActive (true);
+            count = 2;
 		}
 	}
 

@@ -32,10 +32,8 @@ public class ActivateZelda : MonoBehaviour
 
             ZeldaCinematic.SetActive(false);
 
-            if (!playOnce)
-            {
-                AudioM.GetComponent<AudioController>().startNyt();
-            }
+            AudioM.GetComponent<AudioController>().startNyt();
+
             Destroy(this.gameObject);
         }
     }
@@ -52,7 +50,12 @@ public class ActivateZelda : MonoBehaviour
             ZeldaCinematic.SetActive(true);
 
             GameMasterPublicVariables.startZelda = true;
-            AudioM.GetComponent<AudioController>().cain2.Play();
+
+            if (!playOnce)
+            {
+                AudioM.GetComponent<AudioController>().cain2.Play();
+                playOnce = true;
+            }
             player.gameObject.SendMessage("ChangeWeapon", weapon);
         }
     }
