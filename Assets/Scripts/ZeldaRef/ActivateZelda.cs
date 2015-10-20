@@ -52,7 +52,7 @@ public class ActivateZelda : MonoBehaviour
             ZeldaCinematic.SetActive(true);
 
             GameMasterPublicVariables.startZelda = true;
-            
+            AudioM.GetComponent<AudioController>().cain2.Play();
             player.gameObject.SendMessage("ChangeWeapon", weapon);
         }
     }

@@ -8,7 +8,7 @@ public class CountdownTimer : MonoBehaviour {
     float timer, timeBonus, time;
     public static float timeLeft;
     public float timeForKill, startTime, shotgunSpawnKills, akSpawnKills;
-    public GameObject zeldaDoor, ak;
+    public GameObject zeldaDoor, ak, AudioM;
     //public static bool shotgunPick = false, akPick = false;
 
 	// Use this for initialization
@@ -32,6 +32,7 @@ public class CountdownTimer : MonoBehaviour {
         }
 		if (GameMasterPublicVariables.killedAI >= shotgunSpawnKills) {
 			zeldaDoor.SetActive (true);
+            AudioM.GetComponent<AudioController>().cain2.Play();
             StartCoroutine(doorText()); 
 		}
 		if (GameMasterPublicVariables.killedAI >= akSpawnKills) {
