@@ -4,7 +4,7 @@ using System.Collections;
 
 public class GameMasterPublicVariables : MonoBehaviour {
 
-    public static bool EnemyHalfSpeed = false;
+    public static bool EnemyHalfSpeed = false, startZelda = false, zeldaOver= false;
     public Text killCount;
     public static int killedAI, spawnedAI = 0;
     public static float enemyIncreaseTimer = 10, AISpeed;

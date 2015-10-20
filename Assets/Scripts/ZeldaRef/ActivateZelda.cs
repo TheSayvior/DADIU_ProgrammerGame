@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ActivateZelda : MonoBehaviour
 {
-
+    private bool playOnce = false;
     public string weapon;
     public GameObject AudioM;
 
@@ -11,6 +11,8 @@ public class ActivateZelda : MonoBehaviour
     public GameObject canvas;
     public GameObject minimapOutliner;
     public GameObject ZeldaCinematic;
+
+    public Camera mainCam;
 
     // Use this for initialization
     void Start()
@@ -21,26 +23,36 @@ public class ActivateZelda : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameMasterPublicVariables.zeldaOver == true)
+        {
+            canvas.SetActive(true);
+            minimapOutliner.SetActive(true);
 
+            mainCam.enabled = true;
+
+            ZeldaCinematic.SetActive(false);
+
+            if (!playOnce)
+            {
+                AudioM.GetComponent<AudioController>().startNyt();
+            }
+            Destroy(this.gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider player)
     {
         if (player.tag == "Player")
         {
-            Debug.Log("hello");
-
             canvas.SetActive(false);
             minimapOutliner.SetActive(false);
-            Camera.main.enabled = false;
+
+            mainCam.enabled = false;
 
             ZeldaCinematic.SetActive(true);
 
-            //GameMasterPublicVariables.startZelda = true;
-
-
-
-            AudioM.GetComponent<AudioController>().startNyt();
+            GameMasterPublicVariables.startZelda = true;
+            
             player.gameObject.SendMessage("ChangeWeapon", weapon);
         }
     }
