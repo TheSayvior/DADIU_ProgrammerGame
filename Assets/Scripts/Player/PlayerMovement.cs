@@ -31,6 +31,17 @@ public class PlayerMovement : MonoBehaviour {
 
 
 	void Update () {
+        if (CountdownTimer.timeLeft <= 0)
+        {
+            youDead();
+        }
+        Pos = transform.localPosition;
+      if (Pos.y > 2.1)
+      {
+          Pos.y = 2;
+          transform.localPosition = Pos;
+          //RB.AddForce(new Vector3(0,-1,0) * Time.deltaTime * speed);
+      }
 
         //RB.velocity = Vector3.zero;
         if (!mainCam.enabled)
@@ -50,25 +61,25 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey("w"))
         {
             //resetRB();
-            moveDir = moveDir + transform.forward;
+            moveDir = moveDir + transform.forward.normalized;
         }
 
         if (Input.GetKey("s"))
         {
             //resetRB();
-            moveDir = moveDir - transform.forward;
+            moveDir = moveDir - transform.forward.normalized;
         }
 
         if (Input.GetKey("d"))
         {
             //resetRB();
-            moveDir = moveDir + transform.right;
+            moveDir = moveDir + transform.right.normalized;
         }
 
         if (Input.GetKey("a"))
         {
             //resetRB();
-            moveDir = moveDir - transform.right;
+            moveDir = moveDir - transform.right.normalized;
         }
 
         if (Input.anyKey == false)
@@ -77,7 +88,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         //Move the player according to the appropriate force
-        //moveDir.y = 2;
+        //moveDir.y = 0;
         RB.AddForce(moveDir * speed * Time.deltaTime);
 
         // Restricting movement velocity.
@@ -89,20 +100,23 @@ public class PlayerMovement : MonoBehaviour {
         RB.velocity = clampedVelocity;
 
         //make sure the player dosent start flying because of physics
-        //Pos = transform.localPosition;
-        //Pos.y = 2;
-        //transform.localPosition = Pos;
+      
     }
 
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "AI")
         {
-            resBut.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0;
+            youDead();
         }
+    }
+
+    void youDead()
+    {
+        resBut.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
     }
 
     void ChangeWeapon(string weapon)
