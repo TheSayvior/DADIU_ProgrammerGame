@@ -5,7 +5,7 @@ using System.Collections;
 public class GameMasterPublicVariables : MonoBehaviour {
 
     public static bool EnemyHalfSpeed = false, startZelda = false, zeldaOver= false;
-    public Text killCount;
+    public Text killCount,Score;
     public static int killedAI, spawnedAI;
     public static float enemyIncreaseTimer = 10, AISpeed;
     public int AIplus, forEveryKill;
@@ -18,6 +18,8 @@ public class GameMasterPublicVariables : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         EnemyHealth.startingHealth = 1;
         spawnedAI = 0;
+        Score.enabled = false;
+        Score.text = "0";
 	}
 	
 	// Update is called once per frame
