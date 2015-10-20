@@ -108,6 +108,9 @@ public class PlayerMovement : MonoBehaviour {
         if (col.gameObject.tag == "AI")
         {
             resBut.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
         }
     }
 
