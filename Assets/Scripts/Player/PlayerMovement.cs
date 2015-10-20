@@ -31,6 +31,10 @@ public class PlayerMovement : MonoBehaviour {
 
 
 	void Update () {
+        if (CountdownTimer.timeLeft <= 0)
+        {
+            youDead();
+        }
         Pos = transform.localPosition;
       if (Pos.y > 2.1)
       {
@@ -103,11 +107,16 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (col.gameObject.tag == "AI")
         {
-            resBut.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0;
+            youDead();
         }
+    }
+
+    void youDead()
+    {
+        resBut.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
     }
 
     void ChangeWeapon(string weapon)
