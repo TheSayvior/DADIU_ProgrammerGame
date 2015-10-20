@@ -5,7 +5,7 @@ using System.Collections;
 public class CountdownTimer : MonoBehaviour {
 
     public Text timerTxt, findDoor;
-    float timer, timeBonus, time, count = 0;
+    float timer, timeBonus, count;
     public static float timeLeft;
     public float timeForKill, startTime, shotgunSpawnKills, akSpawnKills;
     public GameObject zeldaDoor, ak, AudioM;
@@ -15,6 +15,7 @@ public class CountdownTimer : MonoBehaviour {
 	void Start () {
         timer = startTime;
         timeLeft = startTime;
+        count = 0;
 	}
 	
 	// Update is called once per frame
@@ -38,6 +39,7 @@ public class CountdownTimer : MonoBehaviour {
 		}
 		if (GameMasterPublicVariables.killedAI >= akSpawnKills && count == 1) {
 			ak.SetActive (true);
+            AudioM.GetComponent<AudioController>().ak47.Play();
             count = 2;
 		}
 	}

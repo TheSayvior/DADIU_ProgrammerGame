@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AudioController : MonoBehaviour {
 
-    public AudioSource Intro, Loop, Ahaha, Ahaha2, Stiv, Coke, Mener, Mener2, Ligemeget, Nyt, Shot, Boevser, Kvaeler, cain1, cain2;
+    public AudioSource Intro, Loop, Ahaha, Ahaha2, Stiv, Coke, Mener, Mener2, Ligemeget, Nyt, Shot, Boevser, Kvaeler, cain1, cain2, ak47;
     private int count = 0;
     private float timer = 0;
     public float timeRepeat = 11;

@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour {
             youDead();
         }
         Pos = transform.localPosition;
-      if (Pos.y > 2.1)
+      if (Pos.y > 2.1 || Pos.y < 1.9)
       {
           Pos.y = 2;
           transform.localPosition = Pos;
