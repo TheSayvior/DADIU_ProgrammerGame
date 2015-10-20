@@ -34,6 +34,8 @@ public class ActivateZelda : MonoBehaviour
 
             AudioM.GetComponent<AudioController>().startNyt();
 
+            GameMasterPublicVariables.zeldaOver = false;
+
             Destroy(this.gameObject);
         }
     }
