@@ -8,7 +8,7 @@ public class GameMasterPublicVariables : MonoBehaviour {
     public Text killCount;
     public static int killedAI, spawnedAI;
     public static float enemyIncreaseTimer = 10, AISpeed;
-    public int AIplus, forEveryKill, moreAI, everyKill;
+    public int AIplus, forEveryKill;
     //int count = 0;
 	// Use this for initialization
 	void Start () {
