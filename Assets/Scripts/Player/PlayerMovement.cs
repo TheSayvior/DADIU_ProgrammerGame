@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
     public float speed = 7000f;
     public GameObject ak, shutgun, pistol, resBut;
+    public Text Score;
 
     private Vector3 Pos;
 
@@ -113,6 +115,8 @@ public class PlayerMovement : MonoBehaviour {
 
     public void youDead()
     {
+        Score.enabled = true;
+        Score.text = "Score: " + GameMasterPublicVariables.killedAI;
         resBut.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
