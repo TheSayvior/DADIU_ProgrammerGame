@@ -4,7 +4,7 @@ using System.Collections;
 public class ZeldaRefAnimateFigure : MonoBehaviour {
 
     public float aniSpeed = 1;
-    public float waitTime = 4;
+    public float waitTime = 5;
     public bool startZelda = false;
 
     public GameObject background;
@@ -27,7 +27,8 @@ public class ZeldaRefAnimateFigure : MonoBehaviour {
     }
     // Update is called once per frame
         void Update() {
-        if (startZelda == true && (transform.position.z > originalZPos - 0.5))
+
+        if (GameMasterPublicVariables.startZelda == true)
         {
             if (transform.position.z >= originalZPos + 1.5)
             {
@@ -42,11 +43,18 @@ public class ZeldaRefAnimateFigure : MonoBehaviour {
             }
             waitTime -= Time.deltaTime;
 
-            if(walkOut && waitTime < 0.0f)
+            if(walkOut && waitTime > 0.0f)
             {
                 MR.material.mainTexture = newBackground;
                 moveBackward();
             }
+
+         
+        }
+        if ((transform.position.z < originalZPos - 0.5))
+        {
+            GameMasterPublicVariables.zeldaOver = true;
+            Destroy(this.gameObject);
         }
     }
 

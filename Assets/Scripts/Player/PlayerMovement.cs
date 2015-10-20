@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool collided;
 
+    private Camera mainCam;
+
     //Needed for double speed powerup
     bool boolDoubleSpeed = false;
     private float doubleSpeed;
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start () {
         RB = GetComponent<Rigidbody>();
         doubleSpeed = speed * 2;
+        mainCam = Camera.main;
     }
 	
 	// Update is called once per frame
@@ -30,6 +33,10 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 
         //RB.velocity = Vector3.zero;
+        if (!mainCam.enabled)
+        {
+            return;
+        }
 
         Vector3 moveDir = Vector3.zero;
 
