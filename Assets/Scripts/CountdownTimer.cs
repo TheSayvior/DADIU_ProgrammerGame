@@ -24,24 +24,25 @@ public class CountdownTimer : MonoBehaviour {
         {
             TimerCountdown();
         }
-		if (ak == null) {
-			return;
-		}
-        if (zeldaDoor == null)
-        {
-            return;
-        }
 		if (GameMasterPublicVariables.killedAI >= shotgunSpawnKills && count == 0) {
 			zeldaDoor.SetActive (true);
+            count = 1;
             AudioM.GetComponent<AudioController>().cain1.Play();
             StartCoroutine(doorText());
-            count = 1;
 		}
 		if (GameMasterPublicVariables.killedAI >= akSpawnKills && count == 1) {
 			ak.SetActive (true);
             AudioM.GetComponent<AudioController>().ak47.Play();
             count = 2;
 		}
+        if (ak == null)
+        {
+            return;
+        }
+        if (zeldaDoor == null)
+        {
+            return;
+        }
 	}
 
     void TimerCountdown()
