@@ -51,7 +51,6 @@ public class BulletCollider : MonoBehaviour {
     {
         if (col.gameObject.tag == "AI")
         {
-            Debug.Log("AI DOWN");
             EnemyHealth enemyHealth = col.gameObject.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
@@ -62,7 +61,6 @@ public class BulletCollider : MonoBehaviour {
         }
         else if (col.gameObject.tag == "Wall")
         {
-            Debug.Log("HIT A WALL");
             Destroy(bullet);
             Destroy(gameObject);
         }

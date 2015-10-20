@@ -8,10 +8,11 @@ public class GameMasterPublicVariables : MonoBehaviour {
     public Text killCount;
     public static int killedAI, spawnedAI;
     public static float enemyIncreaseTimer = 10, AISpeed;
-    public int AIplus, forEveryKill;
+    public int AIplus, forEveryKill, moreAI, everyKill;
     //int count = 0;
 	// Use this for initialization
 	void Start () {
+        Time.timeScale = 1;
         killedAI = 0;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -24,18 +25,19 @@ public class GameMasterPublicVariables : MonoBehaviour {
         killCount.text = "Kills: " + killedAI;
         if (killedAI >= AIplus)
         {
-            if (enemyIncreaseTimer == 5)
-            {
-                enemyIncreaseTimer = 5;
-            }
-            else
-            {
-                enemyIncreaseTimer -= 1;
-            }
             EnemyHealth.startingHealth += 1;
             AIplus += forEveryKill;
-            AISpeed += 0.5f;
+            AISpeed += 1f;
         }
+        //if (enemyIncreaseTimer == 5)
+        //{
+        //    enemyIncreaseTimer = 5;
+        //}
+        //else
+        //{
+        //    enemyIncreaseTimer -= 1;
+        //    moreAI = moreAI + everyKill;
+        //}
 	}
 
     public void restartLevel()
