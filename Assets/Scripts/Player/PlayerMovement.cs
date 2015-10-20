@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void youDead()
+    public void youDead()
     {
         resBut.SetActive(true);
         Cursor.visible = true;
