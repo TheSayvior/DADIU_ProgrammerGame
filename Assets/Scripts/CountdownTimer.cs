@@ -31,7 +31,7 @@ public class CountdownTimer : MonoBehaviour {
         }
 		if (GameMasterPublicVariables.killedAI >= shotgunSpawnKills) {
 			zeldaDoor.SetActive (true);
-            StartCoroutine(doorText());
+            StartCoroutine(doorText()); 
 		}
 		if (GameMasterPublicVariables.killedAI >= akSpawnKills) {
 			ak.SetActive (true);
