@@ -34,13 +34,9 @@ public class PlayerMovement : MonoBehaviour {
         Pos = transform.localPosition;
       if (Pos.y > 2.1)
       {
-            Pos.y = 2;
+          Pos.y = 2;
           transform.localPosition = Pos;
           //RB.AddForce(new Vector3(0,-1,0) * Time.deltaTime * speed);
-      }
-      else
-      {
-          resetRB();
       }
 
         //RB.velocity = Vector3.zero;
@@ -61,25 +57,25 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey("w"))
         {
             //resetRB();
-            moveDir = moveDir + transform.forward;
+            moveDir = moveDir + transform.forward.normalized;
         }
 
         if (Input.GetKey("s"))
         {
             //resetRB();
-            moveDir = moveDir - transform.forward;
+            moveDir = moveDir - transform.forward.normalized;
         }
 
         if (Input.GetKey("d"))
         {
             //resetRB();
-            moveDir = moveDir + transform.right;
+            moveDir = moveDir + transform.right.normalized;
         }
 
         if (Input.GetKey("a"))
         {
             //resetRB();
-            moveDir = moveDir - transform.right;
+            moveDir = moveDir - transform.right.normalized;
         }
 
         if (Input.anyKey == false)
@@ -88,7 +84,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         //Move the player according to the appropriate force
-        moveDir.y = 0;
+        //moveDir.y = 0;
         RB.AddForce(moveDir * speed * Time.deltaTime);
 
         // Restricting movement velocity.
