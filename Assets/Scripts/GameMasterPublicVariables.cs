@@ -24,10 +24,17 @@ public class GameMasterPublicVariables : MonoBehaviour {
         killCount.text = "Kills: " + killedAI;
         if (killedAI >= AIplus)
         {
-            enemyIncreaseTimer -= 1;
+            if (enemyIncreaseTimer == 5)
+            {
+                enemyIncreaseTimer = 5;
+            }
+            else
+            {
+                enemyIncreaseTimer -= 1;
+            }
             EnemyHealth.startingHealth += 1;
             AIplus += forEveryKill;
-            AISpeed += 0.25f;
+            AISpeed += 0.5f;
         }
 	}
 

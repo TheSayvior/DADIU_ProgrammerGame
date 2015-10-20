@@ -11,7 +11,7 @@ public class SpawnAI : MonoBehaviour {
     private Vector3 playerPos;
 	// Use this for initialization
 	void Start () {
-
+        startEnemies = 10;
         player = GameObject.FindGameObjectWithTag("Player");
 
         desiredNumberOfAIs = startEnemies;
