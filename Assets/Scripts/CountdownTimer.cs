@@ -5,7 +5,8 @@ using System.Collections;
 public class CountdownTimer : MonoBehaviour {
 
     public Text timerTxt, findDoor;
-    float timer, timeBonus, timeLeft, time;
+    float timer, timeBonus, time;
+    public static float timeLeft;
     public float timeForKill, startTime, shotgunSpawnKills, akSpawnKills;
     public GameObject zeldaDoor, ak;
     //public static bool shotgunPick = false, akPick = false;
