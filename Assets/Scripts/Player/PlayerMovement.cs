@@ -31,6 +31,17 @@ public class PlayerMovement : MonoBehaviour {
 
 
 	void Update () {
+        Pos = transform.localPosition;
+      if (Pos.y > 2.1)
+      {
+            Pos.y = 2;
+          transform.localPosition = Pos;
+          //RB.AddForce(new Vector3(0,-1,0) * Time.deltaTime * speed);
+      }
+      else
+      {
+          resetRB();
+      }
 
         //RB.velocity = Vector3.zero;
         if (!mainCam.enabled)
@@ -77,7 +88,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         //Move the player according to the appropriate force
-        //moveDir.y = 2;
+        moveDir.y = 0;
         RB.AddForce(moveDir * speed * Time.deltaTime);
 
         // Restricting movement velocity.
@@ -89,9 +100,7 @@ public class PlayerMovement : MonoBehaviour {
         RB.velocity = clampedVelocity;
 
         //make sure the player dosent start flying because of physics
-        //Pos = transform.localPosition;
-        //Pos.y = 2;
-        //transform.localPosition = Pos;
+      
     }
 
     void OnCollisionEnter(Collision col)
