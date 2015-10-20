@@ -23,7 +23,13 @@ public class Shooting : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && timer >= timeBetweenBullets)
         {
-            AudioM.GetComponent<AudioController>().Shot.Play();
+            if (!isShotgun) { 
+                AudioM.GetComponent<AudioController>().Shot.Play();
+            }
+            else
+            {
+                AudioM.GetComponent<AudioController>().ShutgunShot.Play();
+            }
             Shoot();
         }
 
