@@ -32,7 +32,7 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        Vector3 camPos = Camera.main.transform.position + new Vector3(0, -0.6f, 0.6f);
+        Vector3 camPos = Camera.main.transform.position + new Vector3(0, -0.6f, 1f);
         Debug.Log(camPos);
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100))
         {

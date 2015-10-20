@@ -5,8 +5,8 @@ using System.Collections;
 public class CountdownTimer : MonoBehaviour {
 
     public Text timerTxt;
-    float timer, timeBonus, timeLeft;
-    public float timeForKill = 10, startTime = 180;
+    float timer, timeBonus, timeLeft, time;
+    public float timeForKill, startTime, shotgunSpawnTime, akSpawnTime;
     public GameObject shotgun, ak;
 	// Use this for initialization
 	void Start () {
@@ -17,14 +17,16 @@ public class CountdownTimer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         TimerCountdown();
-        if (timer > 60)
-        {
-            shotgun.SetActive(true);
-        }
-        if (timer > 180)
-        {
-            ak.SetActive(true);
-        }
+		time += Time.deltaTime;
+		if (ak == null || shotgun == null) {
+			return;
+		}
+		if (time > shotgunSpawnTime) {
+			shotgun.SetActive (true);
+		}
+		if (time > akSpawnTime) {
+			ak.SetActive (true);
+		}
 	}
 
     void TimerCountdown()
