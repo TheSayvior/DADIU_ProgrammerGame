@@ -27,11 +27,13 @@ public class CountdownTimer : MonoBehaviour {
 		if (GameMasterPublicVariables.killedAI >= shotgunSpawnKills && count == 0) {
 			zeldaDoor.SetActive (true);
             count = 1;
+            timeForKill = 1;
             AudioM.GetComponent<AudioController>().cain1.Play();
             StartCoroutine(doorText());
 		}
 		if (GameMasterPublicVariables.killedAI >= akSpawnKills && count == 1) {
 			ak.SetActive (true);
+            timeForKill = 0.6f;
             AudioM.GetComponent<AudioController>().ak47.Play();
             count = 2;
 		}
