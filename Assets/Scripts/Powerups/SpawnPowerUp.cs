@@ -11,7 +11,7 @@ public class SpawnPowerUp : MonoBehaviour
 
     int x, z, PowerUp;
     public int desiredNumberOfPowerUps;
-    public int NumberOfDifferentPowerUps;
+    public int NumberOfDifferentPowerUps = 1;
     public int timeBetweenPowerUps;
 
     public static int spawnedPowerUps;
@@ -24,6 +24,7 @@ public class SpawnPowerUp : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        NumberOfDifferentPowerUps = 1;
     }
 
     // Update is called once per frame
