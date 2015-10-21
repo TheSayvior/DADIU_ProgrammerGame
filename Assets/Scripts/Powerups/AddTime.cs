@@ -34,9 +34,15 @@ public class AddTime : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter(Collider player)
+    void OnTriggerEnter(Collider col)
     {
-        if (player.tag != "Player")
+        if (col.tag == "Wall")
+        {
+            SpawnPowerUp.takenPowerUps++;
+            Destroy(this.gameObject);
+            return;
+        }
+        if (col.tag != "Player")
         {
             return;
         }
@@ -44,5 +50,15 @@ public class AddTime : MonoBehaviour {
         Debug.Log(GameMasterPublicVariables.pickUpTime);
         SpawnPowerUp.takenPowerUps++;
         Destroy(this.gameObject);
+    }
+
+    void OnTriggerStay(Collider col)
+    {
+        if (col.tag == "Wall")
+        {
+            SpawnPowerUp.takenPowerUps++;
+            Destroy(this.gameObject);
+            return;
+        }
     }
 }

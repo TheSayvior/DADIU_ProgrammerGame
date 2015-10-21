@@ -7,15 +7,18 @@ public class SpawnPowerUp : MonoBehaviour
     public GameObject PowerUpIncreaseDmg;
     public GameObject PowerUptimeBonus;
 
+    public GameObject[] spawnPlaces;
+
     int x, z;
     public int desiredNumberOfPowerUps;
     public int NumberOfDifferentPowerUps;
+    public int timeBetweenPowerUps;
 
     public static int spawnedPowerUps;
     public static int takenPowerUps;
 
     private float timeElapsed = 0;
-    private GameObject player;
+    private GameObject player,spawner;
     private Vector3 playerPos;
     // Use this for initialization
     void Start()
@@ -30,6 +33,13 @@ public class SpawnPowerUp : MonoBehaviour
 
         int numberOfPowerUps = spawnedPowerUps - takenPowerUps;
 
+        timeElapsed += Time.deltaTime;
+
+        if(timeElapsed < timeBetweenPowerUps)
+        {
+            return;
+        }
+
         if (numberOfPowerUps < desiredNumberOfPowerUps)
         {
             StartCoroutine("SpawnOnePowerUps");
@@ -38,33 +48,43 @@ public class SpawnPowerUp : MonoBehaviour
 
     void SpawnOnePowerUp()
     {
-        x = Random.Range(-45, 45);
-        z = Random.Range(25, -65);
+        FindSpawnLocation();
 
-        if (x > playerPos.x + 15 || x < playerPos.x - 15 && z > playerPos.z + 15 || z < playerPos.z - 15)
+        int PowerUp = (int)Random.Range(1, NumberOfDifferentPowerUps + 1);
+
+        switch (PowerUp)
         {
-            int PowerUp = Random.Range(1, NumberOfDifferentPowerUps);
-            switch (PowerUp)
-            {
-                case 1:
-                    PowerUpHalfAiSpeed.transform.position = new Vector3(x, 1.5f, z);
-                    Instantiate(PowerUpHalfAiSpeed);
-                    spawnedPowerUps += 1;
-                    break;
-                case 2:
-                    PowerUpIncreaseDmg.transform.position = new Vector3(x, 1.5f, z);
-                    Instantiate(PowerUpIncreaseDmg);
-                    spawnedPowerUps += 1;
-                    break;
-                case 3:
-                    PowerUptimeBonus.transform.position = new Vector3(x, 1.5f, z);
-                    Instantiate(PowerUptimeBonus);
-                    spawnedPowerUps += 1;
-                    break;
-                default:
-                    break;
-                        
-            }
+            case 1:
+                PowerUpHalfAiSpeed.transform.position = spawner.transform.position;
+                Instantiate(PowerUpHalfAiSpeed);
+                spawnedPowerUps += 1;
+                break;
+            case 2:
+                PowerUpIncreaseDmg.transform.position = spawner.transform.position;
+                Instantiate(PowerUpIncreaseDmg);
+                spawnedPowerUps += 1;
+                break;
+            case 3:
+                PowerUptimeBonus.transform.position = spawner.transform.position;
+                Instantiate(PowerUptimeBonus);
+                spawnedPowerUps += 1;
+                break;
+            default:
+                break;
+
+        }
+        timeElapsed = 0;
+    }
+
+    private void FindSpawnLocation()
+    {
+        int spawnLocation = Random.Range(0, spawnPlaces.Length);
+
+        spawner = spawnPlaces[spawnLocation];
+
+        if (Vector3.Distance(spawner.transform.position, player.transform.position) < 20)
+        {
+            FindSpawnLocation();
         }
     }
 

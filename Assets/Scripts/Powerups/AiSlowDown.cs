@@ -15,18 +15,6 @@ public class AiSlowDown : MonoBehaviour {
 		aniTimeElapsed = 0f;
     }
 
-    void OnTriggerEnter(Collider player)
-    {
-        Debug.Log("freak");
-        if (player.tag != "Player")
-        {
-            return;
-        }
-        GameMasterPublicVariables.EnemyHalfSpeed = true;
-        SpawnPowerUp.takenPowerUps++;
-        Destroy(this.gameObject);
-    }
-
     // Update is called once per frame
     void Update () {
 		//Animation of powerUp
@@ -47,7 +35,31 @@ public class AiSlowDown : MonoBehaviour {
 			aniTimeElapsed -= Time.deltaTime;
 		}
 		// End of PowerUp animation
-
-
 	}
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "Wall")
+        {
+            SpawnPowerUp.takenPowerUps++;
+            Destroy(this.gameObject);
+            return;
+        }
+        if (col.tag != "Player")
+        {
+            return;
+        }
+        GameMasterPublicVariables.EnemyHalfSpeed = true;
+        SpawnPowerUp.takenPowerUps++;
+        Destroy(this.gameObject);
+    }
+    void OnTriggerStay(Collider col)
+    {
+        if (col.tag == "Wall")
+        {
+            SpawnPowerUp.takenPowerUps++;
+            Destroy(this.gameObject);
+            return;
+        }
+    }
 }
