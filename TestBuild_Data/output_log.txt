@@ -17,8 +17,13 @@ Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\
 Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.135 seconds
+- Completed reload, in  0.040 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2504 -> priority: 1 
+  Thread -> id: 28e8 -> priority: 1 
