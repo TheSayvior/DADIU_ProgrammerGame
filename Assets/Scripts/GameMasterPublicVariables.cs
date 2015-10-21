@@ -28,7 +28,7 @@ public class GameMasterPublicVariables : MonoBehaviour {
         killCount.text = "Kills: " + killedAI;
         if (killedAI >= AiPlus)
         {
-            EnemyHealth.startingHealth += 1;
+            EnemyHealth.startingHealth += 0.5f;
             AiPlus += forEveryKill;
             AISpeed += 1f;
             if (SpawnAI.desiredNumberOfAIs <= AIMaxLimit)
