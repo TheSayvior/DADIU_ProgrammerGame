@@ -9,7 +9,7 @@ public class CountdownTimer : MonoBehaviour {
     public static float timeLeft;
     public float timeForKill, startTime, shotgunSpawnKills, akSpawnKills;
     public GameObject zeldaDoor, ak, AudioM, dmgp, timep, slowp;
-    public static bool slowpb = true, dmgpb = true, timepb = true;
+    public static bool slowpb, dmgpb, timepb;
     //public static bool shotgunPick = false, akPick = false;
 
 	// Use this for initialization
@@ -17,6 +17,9 @@ public class CountdownTimer : MonoBehaviour {
         timer = startTime;
         timeLeft = startTime;
         count = 0;
+        slowpb = true;
+        dmgpb = true;
+        timepb = true;
 	}
 	
 	// Update is called once per frame
