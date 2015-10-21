@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -10,6 +11,7 @@ public class AiSlowDown : MonoBehaviour {
 	private float aniTime = 0.5f;
 	private bool aniUp = true;
 	public static bool doubleSpeed = false;
+
 	// Use this for initialization
 	void Start () {
 		aniTimeElapsed = 0f;
@@ -39,27 +41,14 @@ public class AiSlowDown : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Wall")
-        {
-            SpawnPowerUp.takenPowerUps++;
-            Destroy(this.gameObject);
-            return;
-        }
         if (col.tag != "Player")
         {
             return;
         }
         GameMasterPublicVariables.EnemyHalfSpeed = true;
+        CountdownTimer.slowpb = false;
         SpawnPowerUp.takenPowerUps++;
         Destroy(this.gameObject);
-    }
-    void OnTriggerStay(Collider col)
-    {
-        if (col.tag == "Wall")
-        {
-            SpawnPowerUp.takenPowerUps++;
-            Destroy(this.gameObject);
-            return;
-        }
+
     }
 }

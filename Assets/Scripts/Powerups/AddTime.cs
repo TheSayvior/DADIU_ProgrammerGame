@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class AddTime : MonoBehaviour {
@@ -36,29 +37,13 @@ public class AddTime : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Wall")
-        {
-            SpawnPowerUp.takenPowerUps++;
-            Destroy(this.gameObject);
-            return;
-        }
         if (col.tag != "Player")
         {
             return;
         }
         GameMasterPublicVariables.pickUpTime = GameMasterPublicVariables.pickUpTime + bonusTime;
-        Debug.Log(GameMasterPublicVariables.pickUpTime);
+        CountdownTimer.timepb = false;
         SpawnPowerUp.takenPowerUps++;
         Destroy(this.gameObject);
-    }
-
-    void OnTriggerStay(Collider col)
-    {
-        if (col.tag == "Wall")
-        {
-            SpawnPowerUp.takenPowerUps++;
-            Destroy(this.gameObject);
-            return;
-        }
     }
 }

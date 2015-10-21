@@ -4,11 +4,12 @@ using System.Collections;
 
 public class CountdownTimer : MonoBehaviour {
 
-    public Text timerTxt, newWeapon;
+    public Text timerTxt, newWeapon, powerup;
     float timer, timeBonus, count;
     public static float timeLeft;
     public float timeForKill, startTime, shotgunSpawnKills, akSpawnKills;
-    public GameObject zeldaDoor, ak, AudioM;
+    public GameObject zeldaDoor, ak, AudioM, dmgp, timep, slowp;
+    public static bool slowpb = true, dmgpb = true, timepb = true;
     //public static bool shotgunPick = false, akPick = false;
 
 	// Use this for initialization
@@ -46,6 +47,18 @@ public class CountdownTimer : MonoBehaviour {
         {
             return;
         }
+        if (!slowpb)
+        {
+            StartCoroutine(slowText());
+        }
+        if (!dmgpb)
+        {
+            StartCoroutine(dmgText());
+        }
+        if (!timepb)
+        {
+            StartCoroutine(timeText());
+        }
 	}
 
     void TimerCountdown()
@@ -68,5 +81,29 @@ public class CountdownTimer : MonoBehaviour {
         newWeapon.text = "Find the AK47 MOTHERF*CKER!!!";
         yield return new WaitForSeconds(2.5f);
         newWeapon.text = "";
+    }
+
+    IEnumerator slowText()
+    {
+        powerup.text = "The enemy is slowed for 20 seconds!";
+        yield return new WaitForSeconds(2.5f);
+        slowpb = true;
+        powerup.text = "";
+    }
+
+    IEnumerator dmgText()
+    {
+        powerup.text = "Your damage is increased!";
+        yield return new WaitForSeconds(2.5f);
+        dmgpb = true;
+        powerup.text = "";
+    }
+
+    IEnumerator timeText()
+    {
+        powerup.text = "You have gained 20 seconds!";
+        yield return new WaitForSeconds(2.5f);
+        timepb = true;
+        powerup.text = "";
     }
 }
