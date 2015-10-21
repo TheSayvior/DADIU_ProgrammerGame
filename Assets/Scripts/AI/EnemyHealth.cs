@@ -2,8 +2,8 @@
 
 public class EnemyHealth : MonoBehaviour
 {
-    public static int startingHealth;
-    public int currentHealth;
+    public static float startingHealth;
+    float currentHealth;
     //public int scoreValue = 10;
     bool isDead;
     //public AudioController audioM;
