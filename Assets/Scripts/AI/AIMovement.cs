@@ -5,7 +5,7 @@ public class AIMovement : MonoBehaviour {
 
     //Needed for double speed powerup
     public bool boolDoubleSpeed = false;
-    public float timeForHalfSpeed = 5.0f;
+    public float timeForHalfSpeed;
     private float timeElapsed = 0;
 
     //public Transform destination;
@@ -45,7 +45,7 @@ public class AIMovement : MonoBehaviour {
     {
         if (timeElapsed < timeForHalfSpeed)
         {
-            var halfSpeed = speed / 2;
+            var halfSpeed = speed / 4;
             timeElapsed += Time.deltaTime;
             return halfSpeed;
         }

@@ -9,7 +9,7 @@ public class SpawnPowerUp : MonoBehaviour
 
     public GameObject[] spawnPlaces;
 
-    int x, z;
+    int x, z, PowerUp;
     public int desiredNumberOfPowerUps;
     public int NumberOfDifferentPowerUps;
     public int timeBetweenPowerUps;
@@ -18,7 +18,7 @@ public class SpawnPowerUp : MonoBehaviour
     public static int takenPowerUps;
 
     private float timeElapsed = 0;
-    private GameObject player,spawner;
+    private GameObject player, spawner;
     private Vector3 playerPos;
     // Use this for initialization
     void Start()
@@ -35,7 +35,7 @@ public class SpawnPowerUp : MonoBehaviour
 
         timeElapsed += Time.deltaTime;
 
-        if(timeElapsed < timeBetweenPowerUps)
+        if (timeElapsed < timeBetweenPowerUps)
         {
             return;
         }
@@ -50,7 +50,15 @@ public class SpawnPowerUp : MonoBehaviour
     {
         FindSpawnLocation();
 
-        int PowerUp = (int)Random.Range(1, NumberOfDifferentPowerUps + 1);
+        if (GameMasterPublicVariables.killedAI > 150 && GameMasterPublicVariables.killedAI % 50 == 0)
+        {
+            PowerUp = 2;
+        }
+        else
+        {
+            PowerUp = (int)Random.Range(1, NumberOfDifferentPowerUps + 1);
+        }
+
 
         switch (PowerUp)
         {
