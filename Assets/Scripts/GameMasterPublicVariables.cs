@@ -6,7 +6,7 @@ public class GameMasterPublicVariables : MonoBehaviour {
 
     public static bool EnemyHalfSpeed = false, startZelda = false, zeldaOver= false;
     public Text killCount;
-    public static int killedAI, spawnedAI;
+    public static int killedAI, spawnedAI, dmg, pickUpTime;
     public static float enemyIncreaseTimer = 10, AISpeed;
     public int AiPlus, forEveryKill, AIMaxLimit;
     int highscore;
@@ -19,7 +19,9 @@ public class GameMasterPublicVariables : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         EnemyHealth.startingHealth = 1;
         spawnedAI = 0;
-	}
+        dmg = 1;
+        pickUpTime = 0;
+    }
 	
 	// Update is called once per frame
 	void Update () {

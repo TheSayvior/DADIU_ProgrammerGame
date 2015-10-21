@@ -11,6 +11,7 @@ public class BulletCollider : MonoBehaviour {
     void Start()
     {
         RB = gameObject.GetComponent<Rigidbody>();
+        damagePerShot = GameMasterPublicVariables.dmg;
     }
 
     void Update()
@@ -35,11 +36,6 @@ public class BulletCollider : MonoBehaviour {
     void setDirection(Vector3 dir)
     {
         direction = dir;
-    }
-
-    void setDmg(int dmg)
-    {
-        damagePerShot = dmg;
     }
 
     void setBullet(GameObject bul)

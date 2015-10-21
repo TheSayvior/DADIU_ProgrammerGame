@@ -2,7 +2,6 @@
 
 public class Shooting : MonoBehaviour
 {
-    public int damagePerShot = 20;
     public float timeBetweenBullets = 0.2f;
     public float BulletSpeed = 2f;
     public GameObject bullet,bulletCollider,colliderSpawn;
@@ -71,7 +70,6 @@ public class Shooting : MonoBehaviour
             bul.SendMessage("setDirection", (flyToPos - transform.position).normalized * BulletSpeed);
             bulCol.SendMessage("setDirection", (flyToPos- colliderSpawn.transform.position).normalized * BulletSpeed);
         }
-        bulCol.SendMessage("setDmg", damagePerShot);
         bulCol.SendMessage("setBullet", bul);
     }
 }

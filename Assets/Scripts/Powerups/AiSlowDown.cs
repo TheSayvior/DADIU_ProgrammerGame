@@ -23,7 +23,7 @@ public class AiSlowDown : MonoBehaviour {
             return;
         }
         GameMasterPublicVariables.EnemyHalfSpeed = true;
-
+        SpawnPowerUp.takenPowerUps++;
         Destroy(this.gameObject);
     }
 
