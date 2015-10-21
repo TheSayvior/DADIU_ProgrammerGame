@@ -20,10 +20,13 @@ public class SpawnPowerUp : MonoBehaviour
     private float timeElapsed = 0;
     private GameObject player, spawner;
     private Vector3 playerPos;
+
+    bool dmgPower;
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        dmgPower = false;
     }
 
     // Update is called once per frame
@@ -48,11 +51,16 @@ public class SpawnPowerUp : MonoBehaviour
 
     void SpawnOnePowerUp()
     {
+        if (GameMasterPublicVariables.killedAI % 50 == 0)
+        {
+            dmgPower = true;
+        }
         FindSpawnLocation();
 
-        if (GameMasterPublicVariables.killedAI > 150 && GameMasterPublicVariables.killedAI % 50 == 0)
+        if (GameMasterPublicVariables.killedAI > 150 && dmgPower == true)
         {
             PowerUp = 2;
+            dmgPower = false;
         }
         else
         {
@@ -82,7 +90,6 @@ public class SpawnPowerUp : MonoBehaviour
 
         }
         timeElapsed = 0;
-        Debug.Log("JEG SPAWNER EN POWERUP");
     }
 
     private void FindSpawnLocation()
