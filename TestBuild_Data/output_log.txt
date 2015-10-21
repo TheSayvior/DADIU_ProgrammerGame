@@ -17,7 +17,7 @@ Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\
 Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.163 seconds
+- Completed reload, in  0.135 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
