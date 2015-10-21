@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public float speed = 7000f;
     public GameObject ak, shutgun, pistol, resBut;
-    public Text Score;
+    public Text Score, Highscore;
 
     private Vector3 Pos;
 
@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour {
         RB = GetComponent<Rigidbody>();
         doubleSpeed = speed * 2;
         mainCam = Camera.main;
+        Score.enabled = false;
+        Highscore.text = "Highscore: " + PlayerPrefs.GetInt("Score");
     }
 	
 	// Update is called once per frame
@@ -116,6 +118,11 @@ public class PlayerMovement : MonoBehaviour {
     public void youDead()
     {
         Score.enabled = true;
+        if (PlayerPrefs.GetInt("Score") < GameMasterPublicVariables.killedAI)
+        {
+            PlayerPrefs.SetInt("Score", GameMasterPublicVariables.killedAI);
+            Highscore.text = "Highscore: " + PlayerPrefs.GetInt("Score");
+        }
         Score.text = "Score: " + GameMasterPublicVariables.killedAI;
         resBut.SetActive(true);
         Cursor.visible = true;
