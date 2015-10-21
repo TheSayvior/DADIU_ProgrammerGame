@@ -50,10 +50,8 @@ public class AIBulletBehavior : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("kill me please");
             playermovementScript = (PlayerMovement) col.GetComponent(typeof(PlayerMovement));
             playermovementScript.youDead();
-
             Destroy(gameObject);
         }
 

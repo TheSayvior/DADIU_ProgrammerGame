@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour {
         mainCam = Camera.main;
         Score.enabled = false;
         Highscore.text = "Highscore: " + PlayerPrefs.GetInt("Score");
+        SpawnPowerUp.spawnedPowerUps = 0;
+        SpawnPowerUp.takenPowerUps = 0;
     }
 	
 	// Update is called once per frame
@@ -128,8 +130,6 @@ public class PlayerMovement : MonoBehaviour {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
-        SpawnPowerUp.spawnedPowerUps = 0;
-        SpawnPowerUp.takenPowerUps = 0;
     }
 
     void ChangeWeapon(string weapon)

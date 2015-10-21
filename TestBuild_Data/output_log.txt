@@ -17,23 +17,8 @@ Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\
 Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.169 seconds
+- Completed reload, in  0.664 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
-<RI> Initialized touch support.
-Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\System.dll (this message is harmless)
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: b0c -> priority: 1 
-  Thread -> id: 2368 -> priority: 1 
-kill me please
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 31.079185 ms
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 913.
-Total: 22.438414 ms (FindLiveObjects: 0.052139 ms CreateObjectMapping: 0.022990 ms MarkObjects: 22.343170 ms  DeleteObjects: 0.019706 ms)
-

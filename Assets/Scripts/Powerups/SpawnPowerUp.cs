@@ -11,7 +11,7 @@ public class SpawnPowerUp : MonoBehaviour
 
     int x, z, PowerUp;
     public int desiredNumberOfPowerUps;
-    public int NumberOfDifferentPowerUps = 1;
+    public int NumberOfDifferentPowerUps;
     public int timeBetweenPowerUps;
 
     public static int spawnedPowerUps;
@@ -24,7 +24,6 @@ public class SpawnPowerUp : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        NumberOfDifferentPowerUps = 1;
     }
 
     // Update is called once per frame
@@ -83,12 +82,12 @@ public class SpawnPowerUp : MonoBehaviour
 
         }
         timeElapsed = 0;
+        Debug.Log("JEG SPAWNER EN POWERUP");
     }
 
     private void FindSpawnLocation()
     {
         int spawnLocation = Random.Range(0, spawnPlaces.Length);
-
         spawner = spawnPlaces[spawnLocation];
 
         if (Vector3.Distance(spawner.transform.position, player.transform.position) < 20)
