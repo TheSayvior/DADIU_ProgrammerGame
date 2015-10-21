@@ -2,36 +2,23 @@ Initialize engine version: 5.2.1f1 (44735ea161b3)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 570  (ID=0x1086)
-    Vendor:   NVIDIA
-    VRAM:     1233 MB
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
+    Vendor:   Intel
+    VRAM:     128 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.044 seconds
+Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Benjamin\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.117 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
-<RI> Initialized touch support.
-Platform assembly: C:\Users\Rasmus Jensen\Documents\DADIU_ProgrammerGame\TestBuild_Data\Managed\System.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1694 -> priority: 1 
-20
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 6.551325 ms
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 913.
-Total: 0.362943 ms (FindLiveObjects: 0.056913 ms CreateObjectMapping: 0.048205 ms MarkObjects: 0.241651 ms  DeleteObjects: 0.015550 ms)
-
