@@ -50,7 +50,7 @@ public class CountdownTimer : MonoBehaviour {
     void TimerCountdown()
     {
         timer -= Time.deltaTime;
-        timeBonus = GameMasterPublicVariables.killedAI * timeForKill;
+        timeBonus = GameMasterPublicVariables.killedAI * timeForKill + GameMasterPublicVariables.pickUpTime;
         timeLeft = timer + timeBonus;
         timerTxt.text = "Time left: " + timeLeft.ToString("f2");
     }
