@@ -6,7 +6,7 @@ public class Shooting : MonoBehaviour
     public float timeBetweenBullets = 0.2f;
     public float BulletSpeed = 2f;
     public GameObject bullet,bulletCollider,colliderSpawn;
-    public bool isShotgun=false;
+    public bool isShotgun=false, isAk = false;
     RaycastHit hitInfo;
     Vector3 flyToPos;
     public GameObject AudioM;
@@ -20,10 +20,18 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
+        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && isAk == true)
+        {
+            AudioM.GetComponent<AudioController>().Shot.loop = true;
+            AudioM.GetComponent<AudioController>().Shot.Play();
+            Shoot();
+            return;
+        }
+        AudioM.GetComponent<AudioController>().Shot.loop = false;
         if (Input.GetButtonDown("Fire1") && timer >= timeBetweenBullets)
         {
-            if (!isShotgun) { 
+            if (!isShotgun) 
+            { 
                 AudioM.GetComponent<AudioController>().Shot.Play();
             }
             else
