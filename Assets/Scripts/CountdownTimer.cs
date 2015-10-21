@@ -4,7 +4,7 @@ using System.Collections;
 
 public class CountdownTimer : MonoBehaviour {
 
-    public Text timerTxt, findDoor;
+    public Text timerTxt, newWeapon;
     float timer, timeBonus, count;
     public static float timeLeft;
     public float timeForKill, startTime, shotgunSpawnKills, akSpawnKills;
@@ -36,7 +36,8 @@ public class CountdownTimer : MonoBehaviour {
             timeForKill = 1.1f;
             AudioM.GetComponent<AudioController>().ak47.Play();
             count = 2;
-		}
+            StartCoroutine(akText());
+        }
         if (ak == null)
         {
             return;
@@ -57,8 +58,15 @@ public class CountdownTimer : MonoBehaviour {
 
     IEnumerator doorText()
     {
-        findDoor.text = "Find the door!!!";
+        newWeapon.text = "Find the door!!!";
         yield return new WaitForSeconds(2.5f);
-        findDoor.text = "";
+        newWeapon.text = "";
+    }
+
+    IEnumerator akText()
+    {
+        newWeapon.text = "Find the AK47 MOTHERF*CKER!!!";
+        yield return new WaitForSeconds(2.5f);
+        newWeapon.text = "";
     }
 }

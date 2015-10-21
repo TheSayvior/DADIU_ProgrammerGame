@@ -128,6 +128,8 @@ public class PlayerMovement : MonoBehaviour {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
+        SpawnPowerUp.spawnedPowerUps = 0;
+        SpawnPowerUp.takenPowerUps = 0;
     }
 
     void ChangeWeapon(string weapon)
